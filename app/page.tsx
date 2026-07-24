@@ -8,6 +8,7 @@ export default function Home() {
       <Hero />
       <TrustBar />
       <Services />
+      <Projects />
       <WhyUs />
       <Testimonials />
       <ContactCTA />
@@ -44,6 +45,7 @@ function Nav() {
         </a>
         <nav className="hidden gap-8 font-body text-sm text-slate md:flex">
           <a href="#services" className="transition hover:text-ink">Services</a>
+          <a href="#projects" className="transition hover:text-ink">Projects</a>
           <a href="#why" className="transition hover:text-ink">Why Us</a>
           <a href="#testimonials" className="transition hover:text-ink">Clients</a>
           <a href="#contact" className="transition hover:text-ink">Contact</a>
@@ -160,6 +162,52 @@ function Services() {
             <div key={item.title} className="bg-ivory p-8 transition hover:bg-white">
               <h3 className="font-display text-xl text-ink">{item.title}</h3>
               <p className="mt-3 font-body text-sm leading-relaxed text-slate">{item.copy}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- Projects ---------- */
+function Projects() {
+  const projects = [
+    {
+      name: "Shaligram Homes",
+      status: "Completed",
+      location: "Nikol, Ahmedabad",
+      type: "4 BHK Villas · 47 Units",
+      copy: "A 47-unit gated villa community behind Indraprasth Society, near Khodiyar Mandir on Nikol Odhav Road. Built around a decorative main gate, clubhouse, and sprawling central garden, with 24-hour security and water supply, a jogging track, children's play area, and gym.",
+    },
+  ];
+  return (
+    <section id="projects" className="border-b border-mist bg-mist/40 py-24">
+      <div className="mx-auto max-w-6xl px-6">
+        <p className="font-mono text-xs uppercase tracking-widest2 text-accent">Our projects</p>
+        <h2 className="mt-3 max-w-xl font-display text-3xl text-ink sm:text-4xl">
+          Current and completed developments.
+        </h2>
+        <div className="mt-14 grid grid-cols-1 gap-8 md:grid-cols-2">
+          {projects.map((p) => (
+            <div key={p.name} className="rounded-sm border border-mist bg-white p-8">
+              <div className="flex items-start justify-between gap-4">
+                <h3 className="font-display text-xl text-ink">{p.name}</h3>
+                <span
+                  className={`shrink-0 rounded-sm px-3 py-1 font-mono text-[11px] uppercase tracking-widest2 ${
+                    p.status === "Completed"
+                      ? "bg-ink text-ivory"
+                      : "bg-accent text-ink"
+                  }`}
+                >
+                  {p.status}
+                </span>
+              </div>
+              <p className="mt-2 font-body text-sm text-slate">{p.location}</p>
+              <p className="mt-1 font-mono text-xs uppercase tracking-widest2 text-accent">
+                {p.type}
+              </p>
+              <p className="mt-4 font-body text-sm leading-relaxed text-slate">{p.copy}</p>
             </div>
           ))}
         </div>
@@ -286,6 +334,7 @@ function Footer() {
         <p className="-mt-4 font-display text-sm italic text-accent">…build the future…</p>
         <nav className="flex flex-wrap justify-center gap-6 font-body text-xs text-slate">
           <a href="#services" className="hover:text-ink">Services</a>
+          <a href="#projects" className="hover:text-ink">Projects</a>
           <a href="#why" className="hover:text-ink">Why Us</a>
           <a href="#testimonials" className="hover:text-ink">Clients</a>
           <a href="#contact" className="hover:text-ink">Contact</a>
