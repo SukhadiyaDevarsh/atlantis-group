@@ -1,5 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 import ContactForm from "./ContactForm";
+import { projects } from "./projects-data";
 
 export default function Home() {
   return (
@@ -172,24 +174,6 @@ function Services() {
 
 /* ---------- Projects ---------- */
 function Projects() {
-  const projects = [
-    {
-      name: "Shaligram Homes",
-      status: "Completed",
-      image: "/projects/shaligram-homes.jpg",
-      location: "Nikol, Ahmedabad",
-      type: "4 BHK Villas · 47 Units",
-      copy: "A 47-unit gated villa community behind Indraprasth Society, near Khodiyar Mandir on Nikol Odhav Road. Built around a decorative main gate, clubhouse, and sprawling central garden, with 24-hour security and water supply, a jogging track, children's play area, and gym.",
-    },
-    {
-      name: "Raspan Arcade",
-      status: "Completed",
-      image: "/projects/raspan-arcade.jpg",
-      location: "New Nikol, Ahmedabad",
-      type: "Shops & Offices · G+4",
-      copy: "A five-storey commercial arcade at Raspan Char Rasta, near Kunj Mall, built around a central courtyard and water body. Earthquake-resistant RCC frame construction, vitrified tile flooring, and space for banking, retail, restaurants, showrooms, and offices — all served by 24-hour security and water supply.",
-    },
-  ];
   return (
     <section id="projects" className="border-b border-mist bg-mist/40 py-24">
       <div className="mx-auto max-w-6xl px-6">
@@ -199,13 +183,14 @@ function Projects() {
         </h2>
         <div className="mt-14 grid grid-cols-1 gap-10 md:grid-cols-2">
           {projects.map((p) => (
-            <div
-              key={p.name}
+            <Link
+              key={p.slug}
+              href={`/projects/${p.slug}`}
               className="group overflow-hidden rounded-sm border border-mist bg-white transition hover:shadow-md"
             >
               <div className="relative aspect-[4/3] w-full overflow-hidden bg-mist">
                 <Image
-                  src={p.image}
+                  src={p.cardImage}
                   alt={`${p.name} — ${p.type}`}
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -228,8 +213,11 @@ function Projects() {
                   {p.type}
                 </p>
                 <p className="mt-4 font-body text-sm leading-relaxed text-slate">{p.copy}</p>
+                <p className="mt-5 font-mono text-xs uppercase tracking-widest2 text-ink underline-offset-4 group-hover:underline">
+                  View project →
+                </p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
