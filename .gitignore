@@ -4,3 +4,7 @@ out
 .env*.local
 .DS_Store
 *.tsbuildinfo
+
+# Raw brochure exports (source material, not site assets)
+/Raspan
+/Shaligram

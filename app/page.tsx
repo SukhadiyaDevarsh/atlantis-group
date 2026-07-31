@@ -176,6 +176,7 @@ function Projects() {
     {
       name: "Shaligram Homes",
       status: "Completed",
+      image: "/projects/shaligram-homes.jpg",
       location: "Nikol, Ahmedabad",
       type: "4 BHK Villas · 47 Units",
       copy: "A 47-unit gated villa community behind Indraprasth Society, near Khodiyar Mandir on Nikol Odhav Road. Built around a decorative main gate, clubhouse, and sprawling central garden, with 24-hour security and water supply, a jogging track, children's play area, and gym.",
@@ -183,6 +184,7 @@ function Projects() {
     {
       name: "Raspan Arcade",
       status: "Completed",
+      image: "/projects/raspan-arcade.jpg",
       location: "New Nikol, Ahmedabad",
       type: "Shops & Offices · G+4",
       copy: "A five-storey commercial arcade at Raspan Char Rasta, near Kunj Mall, built around a central courtyard and water body. Earthquake-resistant RCC frame construction, vitrified tile flooring, and space for banking, retail, restaurants, showrooms, and offices — all served by 24-hour security and water supply.",
@@ -195,13 +197,22 @@ function Projects() {
         <h2 className="mt-3 max-w-xl font-display text-3xl text-ink sm:text-4xl">
           Current and completed developments.
         </h2>
-        <div className="mt-14 grid grid-cols-1 gap-8 md:grid-cols-2">
+        <div className="mt-14 grid grid-cols-1 gap-10 md:grid-cols-2">
           {projects.map((p) => (
-            <div key={p.name} className="rounded-sm border border-mist bg-white p-8">
-              <div className="flex items-start justify-between gap-4">
-                <h3 className="font-display text-xl text-ink">{p.name}</h3>
+            <div
+              key={p.name}
+              className="group overflow-hidden rounded-sm border border-mist bg-white transition hover:shadow-md"
+            >
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-mist">
+                <Image
+                  src={p.image}
+                  alt={`${p.name} — ${p.type}`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover transition duration-500 group-hover:scale-105"
+                />
                 <span
-                  className={`shrink-0 rounded-sm px-3 py-1 font-mono text-[11px] uppercase tracking-widest2 ${
+                  className={`absolute left-4 top-4 rounded-sm px-3 py-1 font-mono text-[11px] uppercase tracking-widest2 ${
                     p.status === "Completed"
                       ? "bg-ink text-ivory"
                       : "bg-accent text-ink"
@@ -210,11 +221,14 @@ function Projects() {
                   {p.status}
                 </span>
               </div>
-              <p className="mt-2 font-body text-sm text-slate">{p.location}</p>
-              <p className="mt-1 font-mono text-xs uppercase tracking-widest2 text-accent">
-                {p.type}
-              </p>
-              <p className="mt-4 font-body text-sm leading-relaxed text-slate">{p.copy}</p>
+              <div className="p-8">
+                <h3 className="font-display text-xl text-ink">{p.name}</h3>
+                <p className="mt-2 font-body text-sm text-slate">{p.location}</p>
+                <p className="mt-1 font-mono text-xs uppercase tracking-widest2 text-accent">
+                  {p.type}
+                </p>
+                <p className="mt-4 font-body text-sm leading-relaxed text-slate">{p.copy}</p>
+              </div>
             </div>
           ))}
         </div>
