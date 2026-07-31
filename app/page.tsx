@@ -180,6 +180,13 @@ function Projects() {
       type: "4 BHK Villas · 47 Units",
       copy: "A 47-unit gated villa community behind Indraprasth Society, near Khodiyar Mandir on Nikol Odhav Road. Built around a decorative main gate, clubhouse, and sprawling central garden, with 24-hour security and water supply, a jogging track, children's play area, and gym.",
     },
+    {
+      name: "Raspan Arcade",
+      status: "Completed",
+      location: "New Nikol, Ahmedabad",
+      type: "Shops & Offices · G+4",
+      copy: "A five-storey commercial arcade at Raspan Char Rasta, near Kunj Mall, built around a central courtyard and water body. Earthquake-resistant RCC frame construction, vitrified tile flooring, and space for banking, retail, restaurants, showrooms, and offices — all served by 24-hour security and water supply.",
+    },
   ];
   return (
     <section id="projects" className="border-b border-mist bg-mist/40 py-24">
