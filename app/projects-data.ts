@@ -64,10 +64,9 @@ export const projects: Project[] = [
       "Attractive elevation and features",
     ],
     gallery: [
-      { src: "/projects/raspan/street-elevation.jpg", alt: "Raspan Arcade full street elevation" },
+      { src: "/projects/raspan/evening-view.jpg", alt: "Raspan Arcade lit up in the evening" },
       { src: "/projects/raspan/building-1.jpg", alt: "Raspan Arcade building render" },
       { src: "/projects/raspan/corner-view.jpg", alt: "Raspan Arcade corner view" },
-      { src: "/projects/raspan/evening-view.jpg", alt: "Raspan Arcade evening view" },
       { src: "/projects/raspan/full-elevation.jpg", alt: "Raspan Arcade full building elevation" },
     ],
   },
