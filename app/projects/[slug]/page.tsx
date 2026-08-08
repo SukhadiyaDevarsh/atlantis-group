@@ -31,15 +31,15 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
         </div>
       </header>
 
-      <section className="relative border-b border-mist">
-        <div className="relative aspect-[16/9] w-full overflow-hidden bg-mist md:aspect-[21/9]">
+      <section className="relative border-b border-mist bg-ink">
+        <div className="relative aspect-[16/9] w-full overflow-hidden md:aspect-[21/9]">
           <Image
             src={project.cardImage}
             alt={`${project.name} — ${project.type}`}
             fill
             priority
             sizes="100vw"
-            className="object-cover"
+            className="object-contain"
           />
           <span
             className={`absolute left-6 top-6 rounded-sm px-3 py-1 font-mono text-[11px] uppercase tracking-widest2 ${
