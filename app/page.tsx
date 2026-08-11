@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import ContactForm from "./ContactForm";
+import Logo from "./Logo";
 import { projects } from "./projects-data";
 
 export default function Home() {
@@ -19,20 +20,6 @@ export default function Home() {
   );
 }
 
-/* ---------- Logo mark ---------- */
-function Logo({ className = "" }: { className?: string }) {
-  return (
-    <div className={`relative overflow-hidden rounded-full ${className}`}>
-      <Image
-        src="/logo-mark.jpg"
-        alt="Atlantis Group emblem — since 1989, build the future"
-        fill
-        sizes="(max-width: 768px) 15vw, 300px"
-        className="object-cover"
-      />
-    </div>
-  );
-}
 
 /* ---------- Nav ---------- */
 function Nav() {
