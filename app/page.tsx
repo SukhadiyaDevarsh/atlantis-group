@@ -188,13 +188,13 @@ function Projects() {
               href={`/projects/${p.slug}`}
               className="group overflow-hidden rounded-sm border border-mist bg-white transition hover:shadow-md"
             >
-              <div className="relative aspect-[4/3] w-full overflow-hidden bg-mist">
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-ink">
                 <Image
                   src={p.cardImage}
                   alt={`${p.name} — ${p.type}`}
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover transition duration-500 group-hover:scale-105"
+                  className="object-contain transition duration-500 group-hover:scale-105"
                 />
                 <span
                   className={`absolute left-4 top-4 rounded-sm px-3 py-1 font-mono text-[11px] uppercase tracking-widest2 ${
