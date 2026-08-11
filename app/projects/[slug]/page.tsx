@@ -118,7 +118,7 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
                   alt={img.alt}
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover"
+                  className="object-contain"
                 />
               </div>
             ))}
