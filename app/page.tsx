@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import ContactForm from "./ContactForm";
 import Logo from "./Logo";
-import HeroCarousel from "./HeroCarousel";
 import { projects } from "./projects-data";
 
 export default function Home() {
@@ -88,7 +87,7 @@ function Hero() {
           </div>
         </div>
         <div className="fade-up flex justify-center md:justify-end">
-          <HeroCarousel className="h-56 w-56 md:h-72 md:w-72" />
+          <Logo className="h-56 w-56 shadow-sm md:h-72 md:w-72" />
         </div>
       </div>
       <div className="rule" />
