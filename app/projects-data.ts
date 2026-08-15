@@ -10,6 +10,7 @@ export type Project = {
   address: string;
   amenities: string[];
   gallery: { src: string; alt: string }[];
+  brochureUrl?: string;
 };
 
 export const projects: Project[] = [
@@ -17,6 +18,7 @@ export const projects: Project[] = [
     slug: "the-edge",
     name: "The Edge",
     status: "Ongoing",
+    brochureUrl: "/brochures/the-edge-brochure.pdf",
     location: "Nikol, Ahmedabad",
     type: "Retail & Office Environs · G+6",
     copy: "Atlantis Group's own landmark development — a high-street retail and office arcade opposite Malbar Royal on Bhakti Circle Road, Nikol. Anchored by a central plaza and landscaped terrace gardens on every floor, with over 1,100 ft of frontage for maximum visibility and a full lineup of national retail brands.",

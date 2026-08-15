@@ -64,6 +64,15 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
             <p className="mt-6 max-w-2xl font-body text-base leading-relaxed text-slate">
               {project.copy}
             </p>
+            {project.brochureUrl && (
+              <a
+                href={project.brochureUrl}
+                download
+                className="mt-8 inline-block rounded-sm bg-ink px-6 py-3 font-body text-sm text-ivory transition hover:bg-[#0B1B2E]"
+              >
+                Download brochure
+              </a>
+            )}
           </div>
           <div className="rounded-sm border border-mist bg-mist/40 p-8">
             <p className="font-mono text-xs uppercase tracking-widest2 text-accent">Details</p>
