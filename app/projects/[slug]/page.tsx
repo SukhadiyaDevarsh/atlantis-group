@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import Logo from "../../Logo";
 import { projects, getProject } from "../../projects-data";
 
 export function generateStaticParams() {
@@ -24,14 +23,10 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
   return (
     <main className="overflow-x-hidden bg-ivory">
       <header className="sticky top-0 z-40 border-b border-mist/80 bg-ivory/90 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+        <div className="mx-auto flex max-w-6xl items-center px-6 py-4">
           <Link href="/#projects" className="font-body text-sm text-slate transition hover:text-ink">
             ← Back to projects
           </Link>
-          <span className="flex items-center gap-3 font-logo text-lg uppercase tracking-wide text-ink">
-            <Logo className="h-9 w-9 shrink-0" />
-            Atlantis Group
-          </span>
         </div>
       </header>
 
