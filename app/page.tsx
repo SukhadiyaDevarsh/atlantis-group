@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ContactForm from "./ContactForm";
 import Logo from "./Logo";
+import Reveal from "./Reveal";
 import { projects } from "./projects-data";
 
 export default function Home() {
@@ -105,7 +106,7 @@ function TrustBar() {
   ];
   return (
     <section className="border-b border-mist bg-ink">
-      <div className="mx-auto grid max-w-6xl grid-cols-2 gap-8 px-6 py-12 md:grid-cols-4">
+      <Reveal className="mx-auto grid max-w-6xl grid-cols-2 gap-8 px-6 py-12 md:grid-cols-4">
         {stats.map((s) => (
           <div key={s.label} className="text-center md:text-left">
             <p className="font-mono text-2xl text-accent-light sm:text-3xl">{s.value}</p>
@@ -114,7 +115,7 @@ function TrustBar() {
             </p>
           </div>
         ))}
-      </div>
+      </Reveal>
     </section>
   );
 }
@@ -141,7 +142,7 @@ function Services() {
   ];
   return (
     <section id="services" className="border-b border-mist bg-ivory py-24">
-      <div className="mx-auto max-w-6xl px-6">
+      <Reveal className="mx-auto max-w-6xl px-6">
         <p className="font-mono text-xs uppercase tracking-widest2 text-accent">What we do</p>
         <h2 className="mt-3 max-w-xl font-display text-3xl text-ink sm:text-4xl">
           Services built around a full property lifecycle.
@@ -154,7 +155,7 @@ function Services() {
             </div>
           ))}
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }
@@ -163,7 +164,7 @@ function Services() {
 function Projects() {
   return (
     <section id="projects" className="border-b border-mist bg-mist/40 py-24">
-      <div className="mx-auto max-w-6xl px-6">
+      <Reveal className="mx-auto max-w-6xl px-6">
         <p className="font-mono text-xs uppercase tracking-widest2 text-accent">Our projects</p>
         <h2 className="mt-3 max-w-xl font-display text-3xl text-ink sm:text-4xl">
           Current and completed developments.
@@ -207,7 +208,7 @@ function Projects() {
             </Link>
           ))}
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }
@@ -234,7 +235,7 @@ function WhyUs() {
   ];
   return (
     <section id="why" className="border-b border-mist bg-mist/40 py-24">
-      <div className="mx-auto max-w-6xl px-6">
+      <Reveal className="mx-auto max-w-6xl px-6">
         <div className="grid grid-cols-1 gap-16 md:grid-cols-[0.8fr,1.2fr]">
           <div>
             <p className="font-mono text-xs uppercase tracking-widest2 text-accent">Why Atlantis Group</p>
@@ -251,7 +252,7 @@ function WhyUs() {
             ))}
           </div>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }
@@ -274,7 +275,7 @@ function Testimonials() {
   ];
   return (
     <section id="testimonials" className="border-b border-mist bg-ivory py-24">
-      <div className="mx-auto max-w-6xl px-6">
+      <Reveal className="mx-auto max-w-6xl px-6">
         <p className="font-mono text-xs uppercase tracking-widest2 text-accent">Clients</p>
         <h2 className="mt-3 max-w-xl font-display text-3xl text-ink sm:text-4xl">
           What people say after closing.
@@ -294,7 +295,7 @@ function Testimonials() {
         <p className="mt-4 font-mono text-xs text-slate/60">
           Placeholder quotes — swap in real client testimonials before launch.
         </p>
-      </div>
+      </Reveal>
     </section>
   );
 }
@@ -303,7 +304,7 @@ function Testimonials() {
 function ContactCTA() {
   return (
     <section id="contact" className="border-b border-mist bg-ink py-24">
-      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-14 px-6 md:grid-cols-[0.9fr,1.1fr]">
+      <Reveal className="mx-auto grid max-w-6xl grid-cols-1 gap-14 px-6 md:grid-cols-[0.9fr,1.1fr]">
         <div>
           <p className="font-mono text-xs uppercase tracking-widest2 text-accent-light">Get in touch</p>
           <h2 className="mt-3 font-display text-3xl text-ivory sm:text-4xl">
@@ -315,7 +316,7 @@ function ContactCTA() {
           </p>
         </div>
         <ContactForm />
-      </div>
+      </Reveal>
     </section>
   );
 }
