@@ -1,7 +1,7 @@
 export type Project = {
   slug: string;
   name: string;
-  status: "Completed" | "Ongoing";
+  status: string;
   location: string;
   type: string;
   copy: string;
@@ -17,7 +17,7 @@ export const projects: Project[] = [
   {
     slug: "the-edge",
     name: "The Edge",
-    status: "Ongoing",
+    status: "80% Sold Out",
     brochureUrl: "/brochures/the-edge-brochure.pdf",
     location: "Nikol, Ahmedabad",
     type: "Retail & Office Environs · G+6",
