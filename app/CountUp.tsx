@@ -27,7 +27,12 @@ export default function CountUp({
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) setPlaying(true);
+        if (entry.isIntersecting) {
+          setPlaying(true);
+        } else {
+          setPlaying(false);
+          setDisplay(0);
+        }
       },
       { threshold: 0.4 }
     );
