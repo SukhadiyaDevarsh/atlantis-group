@@ -53,47 +53,44 @@ function Nav() {
 /* ---------- Hero ---------- */
 function Hero() {
   return (
-    <section id="top" className="relative border-b border-mist">
-      <div className="relative h-[560px] w-full overflow-hidden sm:h-[640px] md:h-[760px]">
-        <Image
-          src="/projects/the-edge.jpg"
-          alt="The Edge, a landmark Atlantis Group development"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-ink/15 to-ink/60" />
-
-        <div className="fade-up absolute bottom-10 left-6 max-w-3xl sm:bottom-16 sm:left-10 md:bottom-24 md:left-16">
-          <p className="font-mono text-xs uppercase tracking-widest2 text-accent-light">
+    <section id="top" className="relative border-b border-mist bg-ivory">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 px-6 py-20 md:grid-cols-[1.15fr,0.85fr] md:py-28">
+        <div className="fade-up">
+          <p className="font-mono text-xs uppercase tracking-widest2 text-accent">
             Real Estate · Est. 1989
           </p>
-          <h1 className="mt-5 font-display text-4xl leading-[1.05] text-ivory sm:text-6xl md:text-7xl">
+          <h1 className="mt-5 font-display text-4xl leading-[1.1] text-ink sm:text-5xl md:text-6xl">
             Real estate guided by
-            <br />
-            <span className="italic">four decades</span> of trust.
+            <span className="italic"> four decades</span> of trust.
           </h1>
+          <p className="mt-6 max-w-lg font-body text-base leading-relaxed text-slate">
+            Atlantis Group has helped families and investors buy, sell, and grow
+            property portfolios across the region since 1989 — with the same
+            people answering the phone as the ones closing the deal.
+          </p>
+          <p className="mt-3 font-display text-base italic text-accent">
+            …build the future…
+          </p>
           <div className="mt-9 flex flex-wrap gap-4">
             <a
               href="#contact"
-              className="rounded-sm bg-ivory px-6 py-3 font-body text-sm text-ink transition hover:bg-accent-light"
+              className="rounded-sm bg-ink px-6 py-3 font-body text-sm text-ivory transition hover:bg-[#0B1B2E]"
             >
               Schedule a consultation
             </a>
             <a
               href="#services"
-              className="rounded-sm border border-ivory/50 px-6 py-3 font-body text-sm text-ivory transition hover:border-ivory"
+              className="rounded-sm border border-slate/40 px-6 py-3 font-body text-sm text-ink transition hover:border-ink"
             >
               View our services
             </a>
           </div>
         </div>
-
-        <p className="absolute bottom-10 right-6 hidden font-display text-base italic text-ivory/75 sm:bottom-16 sm:right-10 md:bottom-24 md:right-16 lg:block">
-          …build the future…
-        </p>
+        <div className="fade-up flex justify-center md:justify-end">
+          <Logo className="h-56 w-56 shadow-sm md:h-72 md:w-72" />
+        </div>
       </div>
+      <div className="rule" />
     </section>
   );
 }
