@@ -19,6 +19,7 @@ const config: Config = {
         display: ["var(--font-fraunces)", "Georgia", "serif"],
         body: ["var(--font-inter)", "system-ui", "sans-serif"],
         mono: ["var(--font-jetbrains)", "monospace"],
+        logo: ["var(--font-oswald)", "Arial Narrow", "sans-serif"],
       },
       letterSpacing: {
         widest2: "0.25em",

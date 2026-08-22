@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter, JetBrains_Mono } from "next/font/google";
+import { Fraunces, Inter, JetBrains_Mono, Oswald } from "next/font/google";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -7,6 +7,12 @@ const fraunces = Fraunces({
   variable: "--font-fraunces",
   weight: ["400", "500", "600"],
   style: ["normal", "italic"],
+});
+
+const oswald = Oswald({
+  subsets: ["latin"],
+  variable: "--font-oswald",
+  weight: ["500", "600", "700"],
 });
 
 const inter = Inter({
@@ -35,7 +41,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${fraunces.variable} ${inter.variable} ${jetbrainsMono.variable} font-body`}
+        className={`${fraunces.variable} ${inter.variable} ${jetbrainsMono.variable} ${oswald.variable} font-body`}
       >
         {children}
       </body>

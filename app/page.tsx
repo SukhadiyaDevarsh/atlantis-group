@@ -30,7 +30,7 @@ function Nav() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <a href="#top" className="flex items-center gap-3">
           <Logo className="h-10 w-10 shrink-0" />
-          <span className="font-display text-lg tracking-wide text-ink">
+          <span className="font-logo text-lg uppercase tracking-wide text-ink">
             Atlantis Group
           </span>
         </a>
@@ -328,7 +328,7 @@ function Footer() {
     <footer className="bg-ivory py-14">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-6 text-center">
         <Logo className="h-16 w-16" />
-        <p className="font-display text-lg text-ink">Atlantis Group</p>
+        <p className="font-logo text-lg uppercase text-ink">Atlantis Group</p>
         <p className="-mt-4 font-display text-sm italic text-accent">…build the future…</p>
         <nav className="flex flex-wrap justify-center gap-6 font-body text-xs text-slate">
           <a href="#services" className="hover:text-ink">Services</a>

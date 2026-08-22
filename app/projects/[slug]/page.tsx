@@ -28,7 +28,7 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
           <Link href="/#projects" className="font-body text-sm text-slate transition hover:text-ink">
             ← Back to projects
           </Link>
-          <span className="flex items-center gap-3 font-display text-lg tracking-wide text-ink">
+          <span className="flex items-center gap-3 font-logo text-lg uppercase tracking-wide text-ink">
             <Logo className="h-9 w-9 shrink-0" />
             Atlantis Group
           </span>
