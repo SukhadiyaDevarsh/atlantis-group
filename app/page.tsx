@@ -3,6 +3,7 @@ import Link from "next/link";
 import ContactForm from "./ContactForm";
 import Logo from "./Logo";
 import Reveal from "./Reveal";
+import CountUp from "./CountUp";
 import { projects } from "./projects-data";
 
 export default function Home() {
@@ -109,7 +110,7 @@ function TrustBar() {
       <Reveal className="mx-auto grid max-w-6xl grid-cols-2 gap-8 px-6 py-12 md:grid-cols-4">
         {stats.map((s) => (
           <div key={s.label} className="text-center md:text-left">
-            <p className="font-mono text-2xl text-accent-light sm:text-3xl">{s.value}</p>
+            <CountUp value={s.value} className="font-mono text-2xl text-accent-light sm:text-3xl" />
             <p className="mt-1 font-body text-xs uppercase tracking-widest2 text-ivory/70">
               {s.label}
             </p>
