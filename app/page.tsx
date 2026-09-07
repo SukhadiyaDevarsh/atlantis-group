@@ -95,10 +95,10 @@ function Hero() {
 /* ---------- Trust bar ---------- */
 function TrustBar() {
   const stats = [
-    { value: "1989", label: "Founded" },
-    { value: "37", label: "Years in business" },
-    { value: "1,200+", label: "Properties closed" },
-    { value: "98%", label: "Client satisfaction" },
+    { value: "37", label: "Years in Business" },
+    { value: "3,000+", label: "Happy Clients" },
+    { value: "1,171", label: "Commercial Units Sold" },
+    { value: "25", label: "Landmark Projects" },
   ];
   return (
     <section className="border-b border-mist bg-ink">
