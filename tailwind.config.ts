@@ -7,17 +7,20 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: "#161311",
-        ivory: "#FAF9F6",
-        accent: "#EE7A1B",
-        "accent-light": "#F5A155",
+        ink: "#141414",
+        black: "#090909",
+        ivory: "#F7F5F0",
+        warm: "#F0EDE7",
+        accent: "#8F7751",
+        gold: "#BDA370",
+        "accent-light": "#EAD9B9",
         charcoal: "#262B2E",
-        mist: "#E7E2D8",
-        slate: "#54504A",
+        mist: "#E8E4DC",
+        slate: "#6F6B63",
       },
       fontFamily: {
-        display: ["var(--font-fraunces)", "Georgia", "serif"],
-        body: ["var(--font-inter)", "system-ui", "sans-serif"],
+        display: ["var(--font-playfair)", "Georgia", "serif"],
+        body: ["var(--font-manrope)", "Arial", "sans-serif"],
         mono: ["var(--font-jetbrains)", "monospace"],
         logo: ["var(--font-oswald)", "Arial Narrow", "sans-serif"],
       },

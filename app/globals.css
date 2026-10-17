@@ -7,13 +7,13 @@ html {
 }
 
 body {
-  background-color: #FAF9F6;
-  color: #262B2E;
+  background-color: #F7F5F0;
+  color: #141414;
 }
 
 /* Visible keyboard focus, kept consistent with the accent accent */
 :focus-visible {
-  outline: 2px solid #EE7A1B;
+  outline: 2px solid #BDA370;
   outline-offset: 3px;
 }
 
@@ -28,7 +28,7 @@ body {
 
 .rule {
   height: 1px;
-  background: linear-gradient(90deg, transparent, #EE7A1B, transparent);
+  background: linear-gradient(90deg, transparent, #BDA370, transparent);
 }
 
 .fade-up {
@@ -43,5 +43,82 @@ body {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+::selection {
+  background: #BDA370;
+  color: #090909;
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.19em;
+  text-transform: uppercase;
+}
+
+/* Underlined text link with an arrow that nudges up-right on hover */
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 2.5rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid currentColor;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.text-link span {
+  transition: transform 0.3s;
+}
+.text-link:hover span {
+  transform: translate(4px, -4px);
+}
+
+.btn {
+  display: inline-flex;
+  min-height: 58px;
+  min-width: 186px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.4rem;
+  padding: 0 1.25rem;
+  border: 1px solid transparent;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: transform 0.3s, background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+.btn:hover {
+  transform: translateY(-3px);
+}
+.btn-light {
+  background: #F0EDE7;
+  color: #111;
+}
+.btn-light:hover {
+  background: #fff;
+}
+.btn-ghost {
+  border-color: rgba(255, 255, 255, 0.45);
+  color: #fff;
+}
+.btn-ghost:hover {
+  border-color: #fff;
+  background: #fff;
+  color: #111;
+}
+
+.hero-img {
+  animation: heroZoom 2.4s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+@keyframes heroZoom {
+  from {
+    transform: scale(1.12);
+  }
+  to {
+    transform: scale(1.02);
   }
 }

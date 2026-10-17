@@ -1,93 +1,78 @@
 import Image from "next/image";
 import Link from "next/link";
 import ContactForm from "./ContactForm";
-import Logo from "./Logo";
 import Reveal from "./Reveal";
 import CountUp from "./CountUp";
+import SiteHeader from "./SiteHeader";
 import { projects } from "./projects-data";
+
+/* Wide renders used for the full-bleed project panels. Some brochure renders
+   carry a thin white strip on the right edge, which the panel scale crops out. */
+const panelImages: Record<string, string> = {
+  "the-edge": "/projects/the-edge/aerial-night.jpg",
+  "raspan-arcade": "/projects/raspan/hero-sunset.png",
+  "atlantis-industrial-park": "/projects/atlantis-industrial-park/entrance-gate.png",
+  "shaligram-homes": "/projects/shaligram/villas-sunset.png",
+  "satvat-residency": "/projects/satvat/entrance-sunset.png",
+};
+
+/* Crop focus for panel images much wider than the screen (default: center) */
+const panelPositions: Record<string, string> = {
+  "raspan-arcade": "25% center",
+};
 
 export default function Home() {
   return (
     <main className="overflow-x-hidden">
-      <Nav />
+      <SiteHeader />
       <Hero />
       <TrustBar />
-      <Services />
       <Projects />
-      <WhyUs />
+      <Philosophy />
+      <Services />
+      <RenderStrip />
+      <Difference />
       <Testimonials />
       <ContactCTA />
-      <Footer />
     </main>
-  );
-}
-
-
-/* ---------- Nav ---------- */
-function Nav() {
-  return (
-    <header className="sticky top-0 z-40 border-b border-mist/80 bg-ivory/90 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a href="#top" aria-label="Atlantis Group — back to top" className="shrink-0" />
-        <nav className="hidden gap-8 font-body text-sm text-slate md:flex">
-          <a href="#services" className="transition hover:text-ink">Services</a>
-          <a href="#projects" className="transition hover:text-ink">Projects</a>
-          <a href="#why" className="transition hover:text-ink">Why Us</a>
-          <a href="#testimonials" className="transition hover:text-ink">Clients</a>
-          <a href="#contact" className="transition hover:text-ink">Contact</a>
-        </nav>
-        <a
-          href="#contact"
-          className="rounded-sm border border-ink px-4 py-2 font-body text-sm text-ink transition hover:bg-ink hover:text-ivory"
-        >
-          Schedule a call
-        </a>
-      </div>
-    </header>
   );
 }
 
 /* ---------- Hero ---------- */
 function Hero() {
   return (
-    <section id="top" className="relative border-b border-mist bg-ivory">
-      <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 px-6 py-20 md:grid-cols-[1.15fr,0.85fr] md:py-28">
-        <div className="fade-up">
-          <p className="font-mono text-xs uppercase tracking-widest2 text-accent">
-            Real Estate · Est. 1989
+    <section id="top" className="relative h-[100svh] min-h-[690px] overflow-hidden bg-black text-white">
+      <Image
+        src="/projects/the-edge/hero-dusk.png"
+        alt="The Edge by Atlantis Group, full frontage at dusk"
+        fill
+        priority
+        sizes="100vw"
+        className="hero-img object-cover"
+      />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,.7)_0%,rgba(0,0,0,.26)_48%,rgba(0,0,0,.18)),linear-gradient(0deg,rgba(0,0,0,.55),transparent_54%)]" />
+      <div className="relative z-10 mx-auto flex h-full max-w-[1600px] flex-col px-6 pb-16 pt-[clamp(150px,21vh,230px)] md:px-16">
+        <p className="eyebrow fade-up text-white/70">Atlantis Group · Ahmedabad · Est. 1989</p>
+        <h1 className="fade-up mt-6 max-w-5xl font-display text-[clamp(52px,8.6vw,140px)] font-normal leading-[0.98]">
+          Building the
+          <em className="block pl-[0.75em] text-accent-light">future</em>
+        </h1>
+        <div className="mt-auto flex flex-col justify-between gap-8 md:flex-row md:items-end">
+          <p className="max-w-md font-body text-[15px] font-light leading-relaxed text-white/75">
+            Four decades of retail, office, industrial and residential
+            developments across Ahmedabad — with the same people answering the
+            phone as the ones closing the deal.
           </p>
-          <h1 className="mt-5 font-display text-4xl leading-[1.1] text-ink sm:text-5xl md:text-6xl">
-            Real estate guided by
-            <span className="italic"> four decades</span> of trust.
-          </h1>
-          <p className="mt-6 max-w-lg font-body text-base leading-relaxed text-slate">
-            Atlantis Group has helped families and investors buy, sell, and grow
-            property portfolios across the region since 1989 — with the same
-            people answering the phone as the ones closing the deal.
-          </p>
-          <p className="mt-3 font-display text-base italic text-accent">
-            …build the future…
-          </p>
-          <div className="mt-9 flex flex-wrap gap-4">
-            <a
-              href="#contact"
-              className="rounded-sm bg-ink px-6 py-3 font-body text-sm text-ivory transition hover:bg-[#0B1B2E]"
-            >
-              Schedule a consultation
+          <div className="flex flex-wrap gap-2.5">
+            <a href="#projects" className="btn btn-light">
+              Explore projects <span>↗</span>
             </a>
-            <a
-              href="#services"
-              className="rounded-sm border border-slate/40 px-6 py-3 font-body text-sm text-ink transition hover:border-ink"
-            >
-              View our services
+            <a href="#contact" className="btn btn-ghost">
+              Book a site visit <span>↗</span>
             </a>
           </div>
         </div>
-        <div className="fade-up flex justify-center md:justify-end">
-          <Logo className="h-56 w-56 shadow-sm md:h-72 md:w-72" />
-        </div>
       </div>
-      <div className="rule" />
     </section>
   );
 }
@@ -101,16 +86,102 @@ function TrustBar() {
     { value: "25", label: "Landmark Projects" },
   ];
   return (
-    <section className="border-b border-mist bg-ink">
-      <Reveal className="mx-auto grid max-w-6xl grid-cols-2 gap-8 px-6 py-12 md:grid-cols-4">
+    <section id="stats" className="bg-black text-white">
+      <Reveal className="mx-auto grid max-w-[1600px] grid-cols-2 gap-y-10 px-6 py-16 md:grid-cols-4 md:px-16">
         {stats.map((s) => (
-          <div key={s.label} className="text-center md:text-left">
-            <CountUp value={s.value} className="font-mono text-2xl text-accent-light sm:text-3xl" />
-            <p className="mt-1 font-body text-xs uppercase tracking-widest2 text-ivory/70">
-              {s.label}
-            </p>
+          <div key={s.label} className="border-l border-white/15 pl-6">
+            <CountUp value={s.value} className="font-display text-4xl text-accent-light sm:text-5xl" />
+            <p className="eyebrow mt-3 text-white/55">{s.label}</p>
           </div>
         ))}
+      </Reveal>
+    </section>
+  );
+}
+
+/* ---------- Projects ---------- */
+function Projects() {
+  const total = String(projects.length).padStart(2, "0");
+  return (
+    <section id="projects" className="bg-ivory">
+      <Reveal className="mx-auto grid max-w-[1600px] grid-cols-1 items-end gap-8 px-6 pb-24 pt-28 md:grid-cols-[0.7fr,1.4fr,0.7fr] md:px-16 md:pb-40 md:pt-48">
+        <p className="eyebrow self-start pt-2 text-slate">Our projects</p>
+        <h2 className="font-display text-[clamp(44px,7vw,110px)] font-normal leading-[1.08]">
+          Landmarks <em className="text-accent">across</em> Ahmedabad.
+        </h2>
+        <p className="font-body text-[13px] leading-[1.8] text-slate">
+          Ongoing and delivered developments — high-street retail, offices,
+          industrial parks, villas and apartments.
+        </p>
+      </Reveal>
+
+      {projects.map((p, i) => {
+        const [first, ...rest] = p.name.split(" ");
+        return (
+          <article key={p.slug} className="relative h-[100svh] min-h-[620px] overflow-hidden bg-[#111] text-white">
+            <Image
+              src={panelImages[p.slug] ?? p.cardImage}
+              alt={`${p.name} — ${p.type}`}
+              fill
+              sizes="100vw"
+              className="origin-left scale-[1.04] object-cover"
+              style={{ objectPosition: panelPositions[p.slug] ?? "center" }}
+            />
+            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,.6),rgba(0,0,0,0)_55%),linear-gradient(0deg,rgba(0,0,0,.5),transparent_40%)]" />
+            <Reveal className="absolute bottom-[clamp(70px,10vh,120px)] left-6 z-10 max-w-xl pr-6 md:left-16">
+              <div className="mb-[clamp(40px,8vh,100px)]">
+                <span className="font-display text-5xl">{String(i + 1).padStart(2, "0")}</span>
+                <span className="ml-2 font-body text-[11px] tracking-[0.15em] text-white/45">/ {total}</span>
+              </div>
+              <p className="eyebrow mb-5 text-white/65">{p.status}</p>
+              <h3 className="font-display text-[clamp(56px,8vw,128px)] font-normal leading-[0.94]">
+                {first}
+                {rest.length > 0 && (
+                  <em className="block pl-[0.6em] text-accent-light">{rest.join(" ")}</em>
+                )}
+              </h3>
+              <ul className="mb-7 mt-9 flex flex-wrap gap-x-6 gap-y-2 font-body text-[11px] text-white/75">
+                <li>{p.location}</li>
+                <li>· {p.type}</li>
+              </ul>
+              <Link href={`/projects/${p.slug}`} className="text-link border-white/55">
+                Explore project <span>↗</span>
+              </Link>
+            </Reveal>
+          </article>
+        );
+      })}
+    </section>
+  );
+}
+
+/* ---------- Philosophy ---------- */
+function Philosophy() {
+  return (
+    <section id="philosophy" className="bg-ivory py-28 md:py-44">
+      <Reveal className="mx-auto max-w-[1600px] px-6 md:px-16">
+        <p className="eyebrow text-slate">Our philosophy</p>
+        <h2 className="mt-8 max-w-6xl font-display text-[clamp(36px,5.2vw,84px)] font-normal leading-[1.1]">
+          A firm built to last as long as its clients
+          <em className="text-accent"> need it to.</em>
+        </h2>
+        <div className="mt-16 grid grid-cols-1 items-end gap-10 md:grid-cols-[1fr,1fr]">
+          <div className="relative aspect-[4/3] overflow-hidden">
+            <Image
+              src="/projects/the-edge/courtyard-walkway.jpg"
+              alt="The Edge central courtyard walkway"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover"
+            />
+          </div>
+          <p className="max-w-md font-body text-[15px] font-light leading-[1.8] text-slate md:justify-self-end">
+            Atlantis Group has helped families and investors buy, sell, and grow
+            property portfolios across the region since 1989. Every project is
+            planned for the people who will use it for decades — not just for
+            the day it is handed over.
+          </p>
+        </div>
       </Reveal>
     </section>
   );
@@ -137,17 +208,20 @@ function Services() {
     },
   ];
   return (
-    <section id="services" className="border-b border-mist bg-ivory py-24">
-      <Reveal className="mx-auto max-w-6xl px-6">
-        <p className="font-mono text-xs uppercase tracking-widest2 text-accent">What we do</p>
-        <h2 className="mt-3 max-w-xl font-display text-3xl text-ink sm:text-4xl">
-          Services built around a full property lifecycle.
-        </h2>
-        <div className="mt-14 grid grid-cols-1 gap-px overflow-hidden rounded-sm border border-mist bg-mist sm:grid-cols-2">
-          {items.map((item) => (
-            <div key={item.title} className="bg-ivory p-8 transition hover:bg-white">
-              <h3 className="font-display text-xl text-ink">{item.title}</h3>
-              <p className="mt-3 font-body text-sm leading-relaxed text-slate">{item.copy}</p>
+    <section id="services" className="bg-mist py-28 md:py-40">
+      <Reveal className="mx-auto max-w-[1600px] px-6 md:px-16">
+        <div className="mb-16 md:mb-20">
+          <p className="eyebrow mb-5 text-slate">What we do</p>
+          <h2 className="max-w-3xl font-display text-[clamp(40px,6vw,92px)] font-normal leading-[1.08]">
+            The full property <em className="text-accent">lifecycle.</em>
+          </h2>
+        </div>
+        <div className="grid grid-cols-1 border-t border-black/15 sm:grid-cols-2 lg:grid-cols-4">
+          {items.map((item, i) => (
+            <div key={item.title} className="border-b border-black/15 py-10 sm:pr-10 lg:border-b-0">
+              <p className="font-body text-[11px] tracking-[0.15em] text-slate">0{i + 1}</p>
+              <h3 className="mt-8 font-display text-2xl">{item.title}</h3>
+              <p className="mt-4 font-body text-sm leading-relaxed text-slate">{item.copy}</p>
             </div>
           ))}
         </div>
@@ -156,61 +230,33 @@ function Services() {
   );
 }
 
-/* ---------- Projects ---------- */
-function Projects() {
+/* ---------- Render strip ---------- */
+function RenderStrip() {
+  const imgs = [
+    { src: "/projects/satvat/garden-courtyard.jpg", alt: "Satvat Residency garden courtyard" },
+    { src: "/projects/the-edge/street-dusk.jpg", alt: "The Edge street elevation at dusk" },
+    { src: "/projects/shaligram/street-dusk.jpg", alt: "Shaligram Homes street at dusk" },
+    { src: "/projects/raspan/corner-view.jpg", alt: "Raspan Arcade corner view" },
+  ];
   return (
-    <section id="projects" className="border-b border-mist bg-mist/40 py-24">
-      <Reveal className="mx-auto max-w-6xl px-6">
-        <p className="font-mono text-xs uppercase tracking-widest2 text-accent">Our projects</p>
-        <h2 className="mt-3 max-w-xl font-display text-3xl text-ink sm:text-4xl">
-          Current and completed developments.
-        </h2>
-        <div className="mt-14 grid grid-cols-1 gap-10 md:grid-cols-2">
-          {projects.map((p) => (
-            <Link
-              key={p.slug}
-              href={`/projects/${p.slug}`}
-              className="group overflow-hidden rounded-sm border border-mist bg-white transition hover:shadow-md"
-            >
-              <div className="relative aspect-[4/3] w-full overflow-hidden bg-ink">
-                <Image
-                  src={p.cardImage}
-                  alt={`${p.name} — ${p.type}`}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-contain transition duration-500 group-hover:scale-105"
-                />
-                <span
-                  className={`absolute left-4 top-4 rounded-sm px-3 py-1 font-mono text-[11px] uppercase tracking-widest2 ${
-                    p.status === "Completed"
-                      ? "bg-ink text-ivory"
-                      : "bg-accent text-ink"
-                  }`}
-                >
-                  {p.status}
-                </span>
-              </div>
-              <div className="p-8">
-                <h3 className="font-display text-xl text-ink">{p.name}</h3>
-                <p className="mt-2 font-body text-sm text-slate">{p.location}</p>
-                <p className="mt-1 font-mono text-xs uppercase tracking-widest2 text-accent">
-                  {p.type}
-                </p>
-                <p className="mt-4 font-body text-sm leading-relaxed text-slate">{p.copy}</p>
-                <p className="mt-5 font-mono text-xs uppercase tracking-widest2 text-ink underline-offset-4 group-hover:underline">
-                  View project →
-                </p>
-              </div>
-            </Link>
-          ))}
+    <section aria-label="Project renders" className="grid grid-cols-2 bg-black md:grid-cols-4">
+      {imgs.map((img) => (
+        <div key={img.src} className="group relative aspect-[3/4] overflow-hidden">
+          <Image
+            src={img.src}
+            alt={img.alt}
+            fill
+            sizes="(max-width: 768px) 50vw, 25vw"
+            className="object-cover transition duration-700 group-hover:scale-105"
+          />
         </div>
-      </Reveal>
+      ))}
     </section>
   );
 }
 
-/* ---------- Why us ---------- */
-function WhyUs() {
+/* ---------- The Atlantis difference ---------- */
+function Difference() {
   const points = [
     {
       title: "Local expertise since 1989",
@@ -230,24 +276,29 @@ function WhyUs() {
     },
   ];
   return (
-    <section id="why" className="border-b border-mist bg-mist/40 py-24">
-      <Reveal className="mx-auto max-w-6xl px-6">
-        <div className="grid grid-cols-1 gap-16 md:grid-cols-[0.8fr,1.2fr]">
-          <div>
-            <p className="font-mono text-xs uppercase tracking-widest2 text-accent">Why Atlantis Group</p>
-            <h2 className="mt-3 font-display text-3xl text-ink sm:text-4xl">
-              A firm built to last as long as its clients need it to.
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 gap-10 sm:grid-cols-2">
-            {points.map((p) => (
-              <div key={p.title} className="border-l-2 border-accent pl-5">
-                <h3 className="font-display text-lg text-ink">{p.title}</h3>
+    <section id="difference" className="bg-ivory py-28 md:py-40">
+      <Reveal className="mx-auto grid max-w-[1600px] grid-cols-1 gap-16 px-6 md:grid-cols-[0.8fr,1.2fr] md:px-16">
+        <div>
+          <p className="eyebrow mb-5 text-slate">The Atlantis difference</p>
+          <h2 className="font-display text-[clamp(40px,5vw,80px)] font-normal leading-[1.08]">
+            Designed around what <em className="text-accent">endures.</em>
+          </h2>
+        </div>
+        <ol className="border-t border-black/15">
+          {points.map((p, i) => (
+            <li
+              key={p.title}
+              className="grid grid-cols-[48px,1fr,auto] items-baseline gap-4 border-b border-black/15 py-8"
+            >
+              <span className="font-body text-[11px] tracking-[0.15em] text-slate">0{i + 1}</span>
+              <div>
+                <h3 className="font-display text-2xl md:text-3xl">{p.title}</h3>
                 <p className="mt-2 font-body text-sm leading-relaxed text-slate">{p.copy}</p>
               </div>
-            ))}
-          </div>
-        </div>
+              <span className="text-slate">↗</span>
+            </li>
+          ))}
+        </ol>
       </Reveal>
     </section>
   );
@@ -270,25 +321,25 @@ function Testimonials() {
     },
   ];
   return (
-    <section id="testimonials" className="border-b border-mist bg-ivory py-24">
-      <Reveal className="mx-auto max-w-6xl px-6">
-        <p className="font-mono text-xs uppercase tracking-widest2 text-accent">Clients</p>
-        <h2 className="mt-3 max-w-xl font-display text-3xl text-ink sm:text-4xl">
-          What people say after closing.
+    <section id="testimonials" className="bg-mist py-28 md:py-40">
+      <Reveal className="mx-auto max-w-[1600px] px-6 md:px-16">
+        <p className="eyebrow mb-5 text-slate">Clients</p>
+        <h2 className="max-w-3xl font-display text-[clamp(40px,5vw,80px)] font-normal leading-[1.08]">
+          What people say <em className="text-accent">after closing.</em>
         </h2>
-        <div className="mt-14 grid grid-cols-1 gap-10 md:grid-cols-2">
+        <div className="mt-16 grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-20">
           {quotes.map((q, i) => (
-            <blockquote key={i} className="rounded-sm border border-mist bg-white p-8">
-              <p className="font-display text-lg italic leading-relaxed text-ink">
+            <blockquote key={i} className="border-t border-black/15 pt-8">
+              <p className="font-display text-xl italic leading-relaxed md:text-2xl">
                 &ldquo;{q.quote}&rdquo;
               </p>
-              <footer className="mt-5 font-body text-sm text-slate">
-                {q.name} &middot; {q.role}
+              <footer className="eyebrow mt-6 text-slate">
+                {q.name} · {q.role}
               </footer>
             </blockquote>
           ))}
         </div>
-        <p className="mt-4 font-mono text-xs text-slate/60">
+        <p className="mt-6 font-mono text-xs text-slate/60">
           Placeholder quotes — swap in real client testimonials before launch.
         </p>
       </Reveal>
@@ -296,44 +347,52 @@ function Testimonials() {
   );
 }
 
-/* ---------- Contact CTA ---------- */
+/* ---------- Contact CTA + footer ---------- */
 function ContactCTA() {
   return (
-    <section id="contact" className="border-b border-mist bg-ink py-24">
-      <Reveal className="mx-auto grid max-w-6xl grid-cols-1 gap-14 px-6 md:grid-cols-[0.9fr,1.1fr]">
-        <div>
-          <p className="font-mono text-xs uppercase tracking-widest2 text-accent-light">Get in touch</p>
-          <h2 className="mt-3 font-display text-3xl text-ivory sm:text-4xl">
-            Talk to Atlantis Group about your next move.
-          </h2>
-          <p className="mt-5 max-w-sm font-body text-sm leading-relaxed text-ivory/70">
-            Tell us a bit about what you're looking to buy, sell, or manage, and
-            a dedicated agent will follow up within one business day.
-          </p>
-        </div>
-        <ContactForm />
-      </Reveal>
-    </section>
-  );
-}
+    <section id="contact" className="relative overflow-hidden bg-black text-white">
+      <Image
+        src="/projects/the-edge/street-dusk.jpg"
+        alt=""
+        fill
+        sizes="100vw"
+        className="origin-left scale-[1.04] object-cover opacity-30"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/70 to-black" />
+      <div className="relative z-10 mx-auto max-w-[1600px] px-6 pt-32 md:px-16 md:pt-44">
+        <Reveal className="grid grid-cols-1 gap-14 md:grid-cols-[0.9fr,1.1fr]">
+          <div>
+            <p className="eyebrow text-white/60">Get in touch</p>
+            <h2 className="mt-6 font-display text-[clamp(44px,6vw,96px)] font-normal leading-[1.02]">
+              Ready to own a <em className="text-accent-light">landmark?</em>
+            </h2>
+            <p className="mt-6 max-w-sm font-body text-sm font-light leading-relaxed text-white/70">
+              Tell us a bit about what you're looking to buy, sell, or manage, and
+              a dedicated agent will follow up within one business day.
+            </p>
+          </div>
+          <ContactForm />
+        </Reveal>
 
-/* ---------- Footer ---------- */
-function Footer() {
-  return (
-    <footer className="bg-ivory py-14">
-      <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-6 text-center">
-        <p className="font-display text-sm italic text-accent">…build the future…</p>
-        <nav className="flex flex-wrap justify-center gap-6 font-body text-xs text-slate">
-          <a href="#services" className="hover:text-ink">Services</a>
-          <a href="#projects" className="hover:text-ink">Projects</a>
-          <a href="#why" className="hover:text-ink">Why Us</a>
-          <a href="#testimonials" className="hover:text-ink">Clients</a>
-          <a href="#contact" className="hover:text-ink">Contact</a>
-        </nav>
-        <p className="font-mono text-[11px] text-slate/60">
-          &copy; {new Date().getFullYear()} Atlantis Group. Serving clients since 1989.
-        </p>
+        <footer className="mt-28 grid grid-cols-1 gap-8 border-t border-white/20 py-8 sm:grid-cols-2 md:grid-cols-4 md:items-end">
+          <p className="font-display text-lg italic text-accent-light">…build the future…</p>
+          <div className="font-body text-[10px] uppercase leading-[1.8] tracking-[0.09em] text-white/55">
+            <p>Email</p>
+            <a href="mailto:atlantisbuildcon@gmail.com" className="text-white">
+              atlantisbuildcon@gmail.com
+            </a>
+          </div>
+          <nav className="flex flex-wrap gap-x-5 gap-y-2 font-body text-[10px] uppercase tracking-[0.09em] text-white/55">
+            <a href="#projects" className="hover:text-white">Projects</a>
+            <a href="#philosophy" className="hover:text-white">About</a>
+            <a href="#services" className="hover:text-white">Services</a>
+            <a href="#contact" className="hover:text-white">Contact</a>
+          </nav>
+          <p className="font-body text-[10px] uppercase tracking-[0.09em] text-white/55 md:text-right">
+            &copy; {new Date().getFullYear()} Atlantis Group · Since 1989
+          </p>
+        </footer>
       </div>
-    </footer>
+    </section>
   );
 }

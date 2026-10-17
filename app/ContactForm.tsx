@@ -62,7 +62,7 @@ export default function ContactForm() {
         required
         value={name}
         onChange={(e) => setName(e.target.value)}
-        className="rounded-sm border border-ivory/20 bg-transparent px-4 py-3 font-body text-sm text-ivory placeholder:text-ivory/40 focus:border-accent"
+        className="border-0 border-b border-white/25 bg-transparent px-0 py-4 font-body text-sm text-white placeholder:text-white/45 focus:border-gold"
       />
       <input
         type="email"
@@ -71,7 +71,7 @@ export default function ContactForm() {
         required
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        className="rounded-sm border border-ivory/20 bg-transparent px-4 py-3 font-body text-sm text-ivory placeholder:text-ivory/40 focus:border-accent"
+        className="border-0 border-b border-white/25 bg-transparent px-0 py-4 font-body text-sm text-white placeholder:text-white/45 focus:border-gold"
       />
       <input
         type="tel"
@@ -79,7 +79,7 @@ export default function ContactForm() {
         placeholder="Phone number"
         value={phone}
         onChange={(e) => setPhone(e.target.value)}
-        className="rounded-sm border border-ivory/20 bg-transparent px-4 py-3 font-body text-sm text-ivory placeholder:text-ivory/40 focus:border-accent sm:col-span-2"
+        className="border-0 border-b border-white/25 bg-transparent px-0 py-4 font-body text-sm text-white placeholder:text-white/45 focus:border-gold sm:col-span-2"
       />
       <textarea
         name="message"
@@ -88,14 +88,14 @@ export default function ContactForm() {
         required
         value={message}
         onChange={(e) => setMessage(e.target.value)}
-        className="rounded-sm border border-ivory/20 bg-transparent px-4 py-3 font-body text-sm text-ivory placeholder:text-ivory/40 focus:border-accent sm:col-span-2"
+        className="border-0 border-b border-white/25 bg-transparent px-0 py-4 font-body text-sm text-white placeholder:text-white/45 focus:border-gold sm:col-span-2"
       />
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="rounded-sm bg-accent px-6 py-3 font-body text-sm text-ink transition hover:bg-accent-light disabled:opacity-60 sm:col-span-2 sm:w-fit"
+        className="btn btn-light mt-2 disabled:opacity-60 sm:col-span-2 sm:w-fit"
       >
-        {status === "submitting" ? "Sending…" : "Send message"}
+        {status === "submitting" ? "Sending…" : "Request a visit"} <span>↗</span>
       </button>
       {status === "error" && (
         <p className="font-body text-sm text-accent-light sm:col-span-2">

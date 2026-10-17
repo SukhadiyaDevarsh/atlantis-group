@@ -53,7 +53,7 @@ export const projects: Project[] = [
     location: "New Nikol, Ahmedabad",
     type: "Shops & Offices · G+4",
     copy: "A five-storey commercial arcade at Raspan Char Rasta, near Kunj Mall, built around a central courtyard and water body. Earthquake-resistant RCC frame construction, vitrified tile flooring, and space for banking, retail, restaurants, showrooms, and offices — all served by 24-hour security and water supply.",
-    cardImage: "/projects/raspan-arcade.jpg",
+    cardImage: "/projects/raspan/hero-sunset.png",
     developer: "Sundaram Developers",
     address: "Raspan Char Rasta, Near Kunj Mall, New Nikol, Ahmedabad",
     amenities: [
@@ -67,10 +67,10 @@ export const projects: Project[] = [
       "Attractive elevation and features",
     ],
     gallery: [
+      { src: "/projects/raspan/hero-sunset.png", alt: "Raspan Arcade street view at sunset" },
       { src: "/projects/raspan/evening-view.jpg", alt: "Raspan Arcade lit up in the evening" },
       { src: "/projects/raspan/building-1.jpg", alt: "Raspan Arcade building render" },
       { src: "/projects/raspan/corner-view.jpg", alt: "Raspan Arcade corner view" },
-      { src: "/projects/raspan/full-elevation.jpg", alt: "Raspan Arcade full building elevation" },
     ],
   },
   {
@@ -80,7 +80,7 @@ export const projects: Project[] = [
     location: "Vehlal, Ahmedabad",
     type: "Industrial Plots · Small to Large",
     copy: "A gated scheme of independent industrial plots on the Zak to Kadadara Road, near Lubi Industries, Vehlal. N.A./N.O.C. title-clear plots of varying sizes served by wide RCC roads, street lighting, a security cabin, boundary wall, and 24-hour water supply.",
-    cardImage: "/projects/atlantis-industrial-park.jpg",
+    cardImage: "/projects/atlantis-industrial-park/entrance-gate.png",
     developer: "Atlantis Group",
     address: "Zak to Kadadara Road, Near Lubi Industries, Vehlal, Ahmedabad",
     amenities: [
@@ -93,7 +93,7 @@ export const projects: Project[] = [
       "Common plots",
     ],
     gallery: [
-      { src: "/projects/atlantis-industrial-park/main-gate.jpg", alt: "Atlantis Industrial Park main gate" },
+      { src: "/projects/atlantis-industrial-park/entrance-gate.png", alt: "Atlantis Industrial Park entrance gate at sunset" },
       { src: "/projects/atlantis-industrial-park/site-layout-aerial.jpg", alt: "Atlantis Industrial Park aerial site layout" },
       { src: "/projects/atlantis-industrial-park/plot-layout.jpg", alt: "Atlantis Industrial Park plot layout plan" },
     ],
@@ -105,7 +105,7 @@ export const projects: Project[] = [
     location: "Nikol, Ahmedabad",
     type: "4 BHK Villas · 47 Units",
     copy: "A 47-unit gated villa community behind Indraprasth Society, near Khodiyar Mandir on Nikol Odhav Road. Built around a decorative main gate, clubhouse, and sprawling central garden, with 24-hour security and water supply, a jogging track, children's play area, and gym.",
-    cardImage: "/projects/shaligram-homes.jpg",
+    cardImage: "/projects/shaligram/villas-sunset.png",
     developer: "Summer Developers",
     address: "Behind Indraprasth Society, Near Khodiyar Mandir, Nikol Odhav Road, Nikol, Ahmedabad - 382350",
     amenities: [
@@ -119,6 +119,7 @@ export const projects: Project[] = [
       "24 Hrs. water supply",
     ],
     gallery: [
+      { src: "/projects/shaligram/villas-sunset.png", alt: "Shaligram Homes villas and entrance plaza at sunset" },
       { src: "/projects/shaligram/entrance-gate.jpg", alt: "Shaligram Homes decorative entrance gate" },
       { src: "/projects/shaligram/street-1.jpg", alt: "Shaligram Homes street view of villas" },
       { src: "/projects/shaligram/street-dusk.jpg", alt: "Shaligram Homes street view at dusk" },
@@ -135,7 +136,7 @@ export const projects: Project[] = [
     location: "New Nikol, Ahmedabad",
     type: "2 BHK Apartments · 6 Blocks",
     copy: "A 2 BHK apartment community across six blocks (A–F) at New India Colony, opposite VIP International School, New Nikol. Earthquake-resistant RCC frame construction built around a central landscaped garden, with a dedicated security cabin, kids' play area, and standard lifts in every block.",
-    cardImage: "/projects/satvat-residency.jpg",
+    cardImage: "/projects/satvat/entrance-sunset.png",
     developer: "Samay Developers",
     address: "New India Colony, Opp. VIP International School, New Nikol, Ahmedabad",
     amenities: [
@@ -148,6 +149,7 @@ export const projects: Project[] = [
       "24 Hrs. water supply",
     ],
     gallery: [
+      { src: "/projects/satvat/entrance-sunset.png", alt: "Satvat Residency towers and entrance gate at sunset" },
       { src: "/projects/satvat/front-elevation.jpg", alt: "Satvat Residency front building elevation" },
       { src: "/projects/satvat/street-view.jpg", alt: "Satvat Residency street view" },
       { src: "/projects/satvat/garden-courtyard.jpg", alt: "Satvat Residency garden courtyard" },

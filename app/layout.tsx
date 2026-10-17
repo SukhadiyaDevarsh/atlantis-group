@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter, JetBrains_Mono, Oswald } from "next/font/google";
+import { Playfair_Display, Manrope, JetBrains_Mono, Oswald } from "next/font/google";
 import "./globals.css";
 
-const fraunces = Fraunces({
+const playfair = Playfair_Display({
   subsets: ["latin"],
-  variable: "--font-fraunces",
-  weight: ["400", "500", "600"],
+  variable: "--font-playfair",
+  weight: ["400", "500"],
   style: ["normal", "italic"],
 });
 
@@ -15,10 +15,10 @@ const oswald = Oswald({
   weight: ["500", "600", "700"],
 });
 
-const inter = Inter({
+const manrope = Manrope({
   subsets: ["latin"],
-  variable: "--font-inter",
-  weight: ["400", "500", "600"],
+  variable: "--font-manrope",
+  weight: ["300", "400", "500", "600"],
 });
 
 const jetbrainsMono = JetBrains_Mono({
@@ -41,7 +41,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${fraunces.variable} ${inter.variable} ${jetbrainsMono.variable} ${oswald.variable} font-body`}
+        className={`${playfair.variable} ${manrope.variable} ${jetbrainsMono.variable} ${oswald.variable} font-body`}
       >
         {children}
       </body>
