@@ -43,6 +43,14 @@ export default function RootLayout({
       <body
         className={`${playfair.variable} ${manrope.variable} ${jetbrainsMono.variable} ${oswald.variable} font-body`}
       >
+        {/* Phones show the desktop layout scaled down: lay the page out 1280px wide and let the
+            browser zoom it to fit. Next.js always emits initial-scale=1 (which would open zoomed
+            in), so every viewport tag is rewritten here and kept that way if Next re-adds one. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var C="width=1280";function f(){var m=document.querySelectorAll('meta[name="viewport"]');for(var i=0;i<m.length;i++)if(m[i].getAttribute("content")!==C)m[i].setAttribute("content",C)}f();new MutationObserver(f).observe(document.documentElement,{subtree:true,childList:true,attributes:true,attributeFilter:["content"]})})()`,
+          }}
+        />
         {children}
       </body>
     </html>

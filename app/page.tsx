@@ -40,7 +40,7 @@ export default function Home() {
 /* ---------- Hero ---------- */
 function Hero() {
   return (
-    <section id="top" className="relative h-[100svh] min-h-[690px] overflow-hidden bg-black text-white">
+    <section id="top" className="relative h-[min(100svh,62.5vw)] min-h-[690px] overflow-hidden bg-black text-white">
       <Image
         src="/projects/the-edge/hero-dusk.png"
         alt="The Edge by Atlantis Group, full frontage at dusk"
@@ -116,18 +116,21 @@ function Projects() {
       {projects.map((p, i) => {
         const [first, ...rest] = p.name.split(" ");
         return (
-          <article key={p.slug} className="relative h-[100svh] min-h-[620px] overflow-hidden bg-[#111] text-white">
-            <Image
-              src={panelImages[p.slug] ?? p.cardImage}
-              alt={`${p.name} — ${p.type}`}
-              fill
-              sizes="100vw"
-              className="origin-left scale-[1.04] object-cover"
-              style={{ objectPosition: panelPositions[p.slug] ?? "center" }}
-            />
-            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,.6),rgba(0,0,0,0)_55%),linear-gradient(0deg,rgba(0,0,0,.5),transparent_40%)]" />
-            <Reveal className="absolute bottom-[clamp(70px,10vh,120px)] left-6 z-10 max-w-xl pr-6 md:left-16">
-              <div className="mb-[clamp(40px,8vh,100px)]">
+          <article key={p.slug} className="relative overflow-hidden bg-[#111] text-white md:h-[min(100svh,62.5vw)] md:min-h-[620px]">
+            {/* Phones: full photo on top, text below. Larger screens: text over a full-screen photo */}
+            <div className="relative aspect-[16/10] w-full overflow-hidden md:absolute md:inset-0 md:aspect-auto">
+              <Image
+                src={panelImages[p.slug] ?? p.cardImage}
+                alt={`${p.name} — ${p.type}`}
+                fill
+                sizes="100vw"
+                className="origin-left scale-[1.04] object-cover"
+                style={{ objectPosition: panelPositions[p.slug] ?? "center" }}
+              />
+              <div className="absolute inset-0 hidden bg-[linear-gradient(90deg,rgba(0,0,0,.6),rgba(0,0,0,0)_55%),linear-gradient(0deg,rgba(0,0,0,.5),transparent_40%)] md:block" />
+            </div>
+            <Reveal className="relative z-10 px-6 pb-16 pt-8 md:absolute md:bottom-[clamp(70px,10vh,120px)] md:left-16 md:max-w-xl md:p-0 md:pr-6">
+              <div className="mb-6 md:mb-[clamp(40px,8vh,100px)]">
                 <span className="font-display text-5xl">{String(i + 1).padStart(2, "0")}</span>
                 <span className="ml-2 font-body text-[11px] tracking-[0.15em] text-white/45">/ {total}</span>
               </div>

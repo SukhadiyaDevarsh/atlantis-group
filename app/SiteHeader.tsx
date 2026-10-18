@@ -12,6 +12,14 @@ const links = [
 
 export default function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -22,7 +30,13 @@ export default function SiteHeader() {
 
   return (
     <>
-      <header className="fixed left-0 top-0 z-50 flex w-full items-center justify-between px-6 py-6 text-white mix-blend-difference md:px-16">
+      {/* Phones get a solid bar once scrolled so the header never sits on top of text;
+          larger screens keep the inverted, see-through header */}
+      <header
+        className={`fixed left-0 top-0 z-50 flex w-full items-center justify-between px-6 text-white transition-[background-color,padding] duration-300 md:px-16 md:py-6 md:mix-blend-difference ${
+          scrolled && !open ? "bg-black/90 py-4 backdrop-blur" : "py-6 mix-blend-difference"
+        } md:bg-transparent md:backdrop-blur-none`}
+      >
         <a href="#top" className="font-body text-[12px] uppercase tracking-[0.13em] sm:text-[14px]">
           Atlantis Group · Est. 1989
         </a>
