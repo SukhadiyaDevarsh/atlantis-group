@@ -119,7 +119,6 @@ export const projects: Project[] = [
       "24 Hrs. water supply",
     ],
     gallery: [
-      { src: "/projects/shaligram/villas-sunset.png", alt: "Shaligram Homes villas and entrance plaza at sunset" },
       { src: "/projects/shaligram/entrance-gate.jpg", alt: "Shaligram Homes decorative entrance gate" },
       { src: "/projects/shaligram/street-1.jpg", alt: "Shaligram Homes street view of villas" },
       { src: "/projects/shaligram/street-dusk.jpg", alt: "Shaligram Homes street view at dusk" },
@@ -136,7 +135,7 @@ export const projects: Project[] = [
     location: "New Nikol, Ahmedabad",
     type: "2 BHK Apartments · 6 Blocks",
     copy: "A 2 BHK apartment community across six blocks (A–F) at New India Colony, opposite VIP International School, New Nikol. Earthquake-resistant RCC frame construction built around a central landscaped garden, with a dedicated security cabin, kids' play area, and standard lifts in every block.",
-    cardImage: "/projects/satvat/entrance-sunset.png",
+    cardImage: "/projects/satvat/entrance-dusk.png",
     developer: "Samay Developers",
     address: "New India Colony, Opp. VIP International School, New Nikol, Ahmedabad",
     amenities: [
@@ -149,7 +148,6 @@ export const projects: Project[] = [
       "24 Hrs. water supply",
     ],
     gallery: [
-      { src: "/projects/satvat/entrance-sunset.png", alt: "Satvat Residency towers and entrance gate at sunset" },
       { src: "/projects/satvat/front-elevation.jpg", alt: "Satvat Residency front building elevation" },
       { src: "/projects/satvat/street-view.jpg", alt: "Satvat Residency street view" },
       { src: "/projects/satvat/garden-courtyard.jpg", alt: "Satvat Residency garden courtyard" },

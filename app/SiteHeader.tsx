@@ -1,8 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
-import { projects } from "./projects-data";
 
 const links = [
   { href: "#top", label: "Home" },
@@ -25,7 +23,9 @@ export default function SiteHeader() {
   return (
     <>
       <header className="fixed left-0 top-0 z-50 flex w-full items-center justify-between px-6 py-6 text-white mix-blend-difference md:px-16">
-        <span />
+        <a href="#top" className="font-body text-[12px] uppercase tracking-[0.13em] sm:text-[14px]">
+          Atlantis Group · Est. 1989
+        </a>
 
         <div className="flex items-center gap-8 md:gap-14">
           <a href="#contact" className="hidden font-body text-[11px] uppercase tracking-[0.13em] sm:block">
@@ -51,7 +51,7 @@ export default function SiteHeader() {
           open ? "visible [clip-path:inset(0)]" : "invisible [clip-path:inset(0_0_100%_0)]"
         }`}
       >
-        <div className="mx-auto grid h-full max-w-[1600px] grid-cols-1 content-center gap-12 overflow-y-auto px-6 py-28 md:grid-cols-[1.4fr,0.6fr] md:px-16">
+        <div className="mx-auto grid h-full max-w-[1600px] grid-cols-1 content-center gap-12 overflow-y-auto px-6 py-28 md:px-16">
           <nav className="flex flex-col items-start gap-1">
             {links.map((l, i) => (
               <a
@@ -67,28 +67,6 @@ export default function SiteHeader() {
               </a>
             ))}
           </nav>
-          <div className="flex flex-col gap-10 self-end">
-            <div>
-              <p className="eyebrow text-white/40">Ongoing</p>
-              {projects
-                .filter((p) => p.status !== "Completed")
-                .map((p) => (
-                  <Link key={p.slug} href={`/projects/${p.slug}`} className="mt-3 block font-display text-2xl hover:text-gold">
-                    {p.name}
-                  </Link>
-                ))}
-            </div>
-            <div>
-              <p className="eyebrow text-white/40">Delivered</p>
-              {projects
-                .filter((p) => p.status === "Completed")
-                .map((p) => (
-                  <Link key={p.slug} href={`/projects/${p.slug}`} className="mt-3 block font-display text-2xl hover:text-gold">
-                    {p.name}
-                  </Link>
-                ))}
-            </div>
-          </div>
         </div>
       </div>
     </>

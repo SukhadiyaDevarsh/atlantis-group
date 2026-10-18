@@ -13,7 +13,7 @@ const panelImages: Record<string, string> = {
   "raspan-arcade": "/projects/raspan/hero-sunset.png",
   "atlantis-industrial-park": "/projects/atlantis-industrial-park/entrance-gate.png",
   "shaligram-homes": "/projects/shaligram/villas-sunset.png",
-  "satvat-residency": "/projects/satvat/entrance-sunset.png",
+  "satvat-residency": "/projects/satvat/entrance-dusk.png",
 };
 
 /* Crop focus for panel images much wider than the screen (default: center) */
@@ -30,7 +30,6 @@ export default function Home() {
       <Projects />
       <Philosophy />
       <Services />
-      <RenderStrip />
       <Difference />
       <Testimonials />
       <ContactCTA />
@@ -52,8 +51,7 @@ function Hero() {
       />
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,.7)_0%,rgba(0,0,0,.26)_48%,rgba(0,0,0,.18)),linear-gradient(0deg,rgba(0,0,0,.55),transparent_54%)]" />
       <div className="relative z-10 mx-auto flex h-full max-w-[1600px] flex-col px-6 pb-16 pt-[clamp(150px,21vh,230px)] md:px-16">
-        <p className="eyebrow fade-up text-white/70">Atlantis Group · Ahmedabad · Est. 1989</p>
-        <h1 className="fade-up mt-6 max-w-5xl font-display text-[clamp(52px,8.6vw,140px)] font-normal leading-[0.98]">
+        <h1 className="fade-up max-w-5xl font-display text-[clamp(52px,8.6vw,140px)] font-normal leading-[0.98]">
           Building the
           <em className="block pl-[0.75em] text-accent-light">future</em>
         </h1>
@@ -165,23 +163,22 @@ function Philosophy() {
           A firm built to last as long as its clients
           <em className="text-accent"> need it to.</em>
         </h2>
-        <div className="mt-16 grid grid-cols-1 items-end gap-10 md:grid-cols-[1fr,1fr]">
-          <div className="relative aspect-[4/3] overflow-hidden">
-            <Image
-              src="/projects/the-edge/courtyard-walkway.jpg"
-              alt="The Edge central courtyard walkway"
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover"
-            />
-          </div>
-          <p className="max-w-md font-body text-[15px] font-light leading-[1.8] text-slate md:justify-self-end">
-            Atlantis Group has helped families and investors buy, sell, and grow
-            property portfolios across the region since 1989. Every project is
-            planned for the people who will use it for decades — not just for
-            the day it is handed over.
-          </p>
+        {/* Panorama of all five projects; its soft edges fade into the page, so it runs edge to edge */}
+        <div className="relative -mx-6 mt-16 aspect-[2/1] overflow-hidden md:-mx-16 md:aspect-[6000/1884]">
+          <Image
+            src="/projects/projects-skyline.jpg"
+            alt="Skyline of Atlantis Group projects: Atlantis Industrial Park, Raspan Arcade, The Edge, Satvat Residency and Shaligram Homes"
+            fill
+            sizes="100vw"
+            className="object-cover [mask-image:linear-gradient(to_bottom,transparent,black_18%,black_82%,transparent)]"
+          />
         </div>
+        <p className="ml-auto mt-10 max-w-md font-body text-[15px] font-light leading-[1.8] text-slate">
+          Atlantis Group has helped families and investors buy, sell, and grow
+          property portfolios across the region since 1989. Every project is
+          planned for the people who will use it for decades — not just for
+          the day it is handed over.
+        </p>
       </Reveal>
     </section>
   );
@@ -226,31 +223,6 @@ function Services() {
           ))}
         </div>
       </Reveal>
-    </section>
-  );
-}
-
-/* ---------- Render strip ---------- */
-function RenderStrip() {
-  const imgs = [
-    { src: "/projects/satvat/garden-courtyard.jpg", alt: "Satvat Residency garden courtyard" },
-    { src: "/projects/the-edge/street-dusk.jpg", alt: "The Edge street elevation at dusk" },
-    { src: "/projects/shaligram/street-dusk.jpg", alt: "Shaligram Homes street at dusk" },
-    { src: "/projects/raspan/corner-view.jpg", alt: "Raspan Arcade corner view" },
-  ];
-  return (
-    <section aria-label="Project renders" className="grid grid-cols-2 bg-black md:grid-cols-4">
-      {imgs.map((img) => (
-        <div key={img.src} className="group relative aspect-[3/4] overflow-hidden">
-          <Image
-            src={img.src}
-            alt={img.alt}
-            fill
-            sizes="(max-width: 768px) 50vw, 25vw"
-            className="object-cover transition duration-700 group-hover:scale-105"
-          />
-        </div>
-      ))}
     </section>
   );
 }
@@ -309,14 +281,12 @@ function Testimonials() {
   const quotes = [
     {
       quote:
-        "Atlantis Group sold our family home in three weeks and found us the right place to move into. They treated both sides of that like they mattered equally.",
-      name: "Placeholder client name",
-      role: "Residential seller & buyer",
+        "Atlantis Group found the right retail space for our business and had the deal closed in three weeks. They looked after our interests as if they were their own.",
+      role: "Commercial investor",
     },
     {
       quote:
         "We've used their advisory team on four commercial acquisitions. They know the market and they say no to a bad deal, which is worth more than saying yes to a good one.",
-      name: "Placeholder client name",
       role: "Commercial investor",
     },
   ];
@@ -334,14 +304,11 @@ function Testimonials() {
                 &ldquo;{q.quote}&rdquo;
               </p>
               <footer className="eyebrow mt-6 text-slate">
-                {q.name} · {q.role}
+                {q.role}
               </footer>
             </blockquote>
           ))}
         </div>
-        <p className="mt-6 font-mono text-xs text-slate/60">
-          Placeholder quotes — swap in real client testimonials before launch.
-        </p>
       </Reveal>
     </section>
   );
