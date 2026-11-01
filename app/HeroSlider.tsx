@@ -70,7 +70,7 @@ export default function HeroSlider() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_35%,rgba(189,163,112,.24),transparent_60%)]" />
         <span
           aria-hidden
-          className="pointer-events-none absolute -right-[0.06em] top-1/2 -translate-y-1/2 select-none font-display text-[clamp(120px,22vw,360px)] italic leading-none text-white/[0.05]"
+          className="pointer-events-none absolute right-6 top-1/2 md:right-16 -translate-y-1/2 select-none font-display text-[clamp(120px,22vw,360px)] italic leading-none text-white/[0.05]"
         >
           Soon
         </span>
