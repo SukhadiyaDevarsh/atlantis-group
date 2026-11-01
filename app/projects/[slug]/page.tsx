@@ -11,8 +11,15 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   const project = getProject(params.slug);
   if (!project) return {};
   return {
-    title: `${project.name} | Atlantis Group`,
+    // The root layout's title template appends "| Atlantis Group"
+    title: `${project.name}, ${project.location}`,
     description: project.copy,
+    alternates: { canonical: `/projects/${project.slug}` },
+    openGraph: {
+      url: `/projects/${project.slug}`,
+      title: `${project.name} | Atlantis Group`,
+      description: project.copy,
+    },
   };
 }
 

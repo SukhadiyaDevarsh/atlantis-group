@@ -6,6 +6,7 @@ import CountUp from "./CountUp";
 import SiteHeader from "./SiteHeader";
 import HeroSlider from "./HeroSlider";
 import { projects } from "./projects-data";
+import { SITE_URL } from "./site";
 
 /* Wide renders used for the full-bleed project panels. Some brochure renders
    carry a thin white strip on the right edge, which the panel scale crops out. */
@@ -22,9 +23,29 @@ const panelPositions: Record<string, string> = {
   "raspan-arcade": "25% center",
 };
 
+/* Company details for search engines (Google's knowledge panel, brand searches) */
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Atlantis Group",
+  alternateName: "Atlantis Group Ahmedabad",
+  url: SITE_URL,
+  logo: `${SITE_URL}/logo-mark.jpg`,
+  foundingDate: "1989",
+  slogan: "...build the future...",
+  email: "atlantisbuildcon@gmail.com",
+  telephone: "+91-72010-11814",
+  areaServed: "Ahmedabad",
+  address: { "@type": "PostalAddress", addressLocality: "Ahmedabad", addressRegion: "Gujarat", addressCountry: "IN" },
+};
+
 export default function Home() {
   return (
     <main className="overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+      />
       <SiteHeader />
       <HeroSlider />
       <TrustBar />

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Manrope, JetBrains_Mono, Oswald } from "next/font/google";
 import "./globals.css";
+import { SITE_URL } from "./site";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -28,9 +29,23 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Atlantis Group | Real Estate Since 1989",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "Atlantis Group Ahmedabad | Real Estate Developer Since 1989",
+    template: "%s | Atlantis Group",
+  },
   description:
-    "Atlantis Group has helped families and investors buy, sell, and grow property portfolios since 1989.",
+    "Atlantis Group is an Ahmedabad real estate developer since 1989: The Edge, Raspan Arcade, Atlantis Industrial Park, Shaligram Homes and Satvat Residency. Commercial offices, shops, industrial plots and homes.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    siteName: "Atlantis Group",
+    locale: "en_IN",
+    url: "/",
+    title: "Atlantis Group Ahmedabad | Real Estate Developer Since 1989",
+    description:
+      "Commercial offices, shops, industrial plots and homes across Ahmedabad, built by Atlantis Group since 1989.",
+  },
 };
 
 export default function RootLayout({
