@@ -4,6 +4,8 @@
 
 html {
   scroll-behavior: smooth;
+  /* Keep anchored sections clear of the fixed 80px header */
+  scroll-padding-top: 80px;
 }
 
 body {

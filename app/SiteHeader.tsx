@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Logo from "./Logo";
 
 const links = [
   { href: "#top", label: "Home" },
@@ -30,15 +31,23 @@ export default function SiteHeader() {
 
   return (
     <>
-      {/* Phones get a solid bar once scrolled so the header never sits on top of text;
-          larger screens keep the inverted, see-through header */}
       <header
-        className={`fixed left-0 top-0 z-50 flex w-full items-center justify-between px-6 text-white transition-[background-color,padding] duration-300 md:px-16 md:py-6 md:mix-blend-difference ${
-          scrolled && !open ? "bg-black/90 py-4 backdrop-blur" : "py-6 mix-blend-difference"
-        } md:bg-transparent md:backdrop-blur-none`}
+        className={`fixed left-0 top-0 z-50 flex h-20 w-full items-center justify-between border-b px-6 text-white transition-colors duration-500 md:px-16 ${
+          scrolled ? "border-white/10" : "border-transparent"
+        }`}
       >
-        <a href="#top" className="font-body text-[12px] uppercase tracking-[0.13em] sm:text-[14px]">
-          Atlantis Group · Est. 1989
+        {/* Over the banner the bar is a soft fade into the image; once scrolled it turns solid */}
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-black/70 to-transparent" />
+        <div
+          className={`pointer-events-none absolute inset-0 -z-10 bg-black/90 backdrop-blur transition-opacity duration-500 ${
+            scrolled ? "opacity-100" : "opacity-0"
+          }`}
+        />
+        <a href="#top" className="flex items-center gap-4">
+          <Logo className="h-12 w-12 shrink-0" />
+          <span className="font-body text-[12px] uppercase tracking-[0.13em] sm:text-[14px]">
+            Atlantis Group · Est. 1989
+          </span>
         </a>
 
         <div className="flex items-center gap-8 md:gap-14">

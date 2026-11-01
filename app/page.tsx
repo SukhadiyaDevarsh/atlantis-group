@@ -4,6 +4,7 @@ import ContactForm from "./ContactForm";
 import Reveal from "./Reveal";
 import CountUp from "./CountUp";
 import SiteHeader from "./SiteHeader";
+import HeroSlider from "./HeroSlider";
 import { projects } from "./projects-data";
 
 /* Wide renders used for the full-bleed project panels. Some brochure renders
@@ -25,7 +26,7 @@ export default function Home() {
   return (
     <main className="overflow-x-hidden">
       <SiteHeader />
-      <Hero />
+      <HeroSlider />
       <TrustBar />
       <Projects />
       <Philosophy />
@@ -34,44 +35,6 @@ export default function Home() {
       <Testimonials />
       <ContactCTA />
     </main>
-  );
-}
-
-/* ---------- Hero ---------- */
-function Hero() {
-  return (
-    <section id="top" className="relative h-[min(100svh,62.5vw)] min-h-[690px] overflow-hidden bg-black text-white">
-      <Image
-        src="/projects/the-edge/hero-dusk.png"
-        alt="The Edge by Atlantis Group, full frontage at dusk"
-        fill
-        priority
-        sizes="100vw"
-        className="hero-img object-cover"
-      />
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,.7)_0%,rgba(0,0,0,.26)_48%,rgba(0,0,0,.18)),linear-gradient(0deg,rgba(0,0,0,.55),transparent_54%)]" />
-      <div className="relative z-10 mx-auto flex h-full max-w-[1600px] flex-col px-6 pb-16 pt-[clamp(150px,21vh,230px)] md:px-16">
-        <h1 className="fade-up max-w-5xl font-display text-[clamp(52px,8.6vw,140px)] font-normal leading-[0.98]">
-          Building the
-          <em className="block pl-[0.75em] text-accent-light">future</em>
-        </h1>
-        <div className="mt-auto flex flex-col justify-between gap-8 md:flex-row md:items-end">
-          <p className="max-w-md font-body text-[15px] font-light leading-relaxed text-white/75">
-            Four decades of retail, office, industrial and residential
-            developments across Ahmedabad — with the same people answering the
-            phone as the ones closing the deal.
-          </p>
-          <div className="flex flex-wrap gap-2.5">
-            <a href="#projects" className="btn btn-light">
-              Explore projects <span>↗</span>
-            </a>
-            <a href="#contact" className="btn btn-ghost">
-              Book a site visit <span>↗</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
   );
 }
 
@@ -340,6 +303,15 @@ function ContactCTA() {
               Tell us a bit about what you're looking to buy, sell, or manage, and
               a dedicated agent will follow up within one business day.
             </p>
+            <div className="mt-10">
+              <p className="eyebrow text-white/60">Call us</p>
+              <a
+                href="tel:+917201011814"
+                className="mt-3 inline-block font-display text-3xl transition hover:text-accent-light sm:text-4xl"
+              >
+                +91 72010 11814
+              </a>
+            </div>
           </div>
           <ContactForm />
         </Reveal>
@@ -350,6 +322,10 @@ function ContactCTA() {
             <p>Email</p>
             <a href="mailto:atlantisbuildcon@gmail.com" className="text-white">
               atlantisbuildcon@gmail.com
+            </a>
+            <p className="mt-3">Phone</p>
+            <a href="tel:+917201011814" className="text-white">
+              +91 72010 11814
             </a>
           </div>
           <nav className="flex flex-wrap gap-x-5 gap-y-2 font-body text-[10px] uppercase tracking-[0.09em] text-white/55">
